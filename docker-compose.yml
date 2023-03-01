@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  sde:
+    image: sonhaaa/solana-anchor:0.0.2
+    container_name: sde
+    restart: on-failure
+    working_dir: /
+    command: /bin/bash /startup.sh
+    volumes:
+      - ./startup.sh:/startup.sh
+      - ./appdev:/appdev
+      - ./devenv/wallet:/wallet
+      - ./devenv/config/validator.yml:/root/.config/solana/cli/config.yml
+      - ./devenv/config/localnet.yml:/root/.config/solana/cli/localnet.yml
+      - ./devenv/validator/test-ledger:/test-ledger
+      - ./libfiles/libssl.so.1.0.0:/usr/lib/x86_64-linux-gnu/libssl.so.1.0.0
+      - ./libfiles/libssl.so.1.1:/usr/lib/x86_64-linux-gnu/libssl.so.1.1
+      - ./libfiles/libcrypto.so.1.1:/usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+    # expose:
+    #   - 8899
+    ports:
+      - "3000:3000"
+      - "8899:8899"
+    # network_mode: "host"
