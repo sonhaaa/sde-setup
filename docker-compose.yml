@@ -3,7 +3,7 @@ version: "3"
 services:
   sde:
     image: sonhaaa/solana-anchor:0.0.2
-    container_name: sde
+    container_name: solde
     restart: on-failure
     working_dir: /
     command: /bin/bash /startup.sh
