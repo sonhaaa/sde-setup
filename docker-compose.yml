@@ -2,7 +2,7 @@ version: "3"
 
 services:
   sde:
-    image: sonhaaa/solana-anchor:0.0.2
+    image: sonhaaa/solana-anchor-m1:latest
     container_name: solde
     restart: on-failure
     working_dir: /
